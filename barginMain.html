@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교회 바자회 메뉴판</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fffaf5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #ff6f0f;
+      margin-bottom: 30px;
+    }
+    .category {
+      margin-bottom: 40px;
+    }
+    .category h2 {
+      color: #ff6f0f;
+      border-bottom: 2px solid #ff6f0f;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+    }
+    .category h2 img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    th {
+      background-color: #fff4ec;
+      color: #ff6f0f;
+    }
+    tr:hover {
+      background-color: #fff8f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>교회 바자회 메뉴판</h1>
+
+  <div class="category">
+    <h2><img src="https://images.unsplash.com/photo-1604908815119-35e02f2c6472?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60" alt="음식"> 음식</h2>
+    <table>
+      <tr><th>메뉴</th><th>가격</th></tr>
+      <tr><td>떡볶이</td><td>3,000원</td></tr>
+      <tr><td>김밥</td><td>2,500원</td></tr>
+      <tr><td>어묵</td><td>1,000원</td></tr>
+    </table>
+  </div>
+
+  <div class="category">
+    <h2><img src="https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60" alt="애장품"> 애장품</h2>
+    <table>
+      <tr><th>물품</th><th>가격</th></tr>
+      <tr><td>핸드메이드 팔찌</td><td>5,000원</td></tr>
+      <tr><td>소품 인형</td><td>7,000원</td></tr>
+      <tr><td>책갈피 세트</td><td>2,000원</td></tr>
+    </table>
+  </div>
+
+  <div class="category">
+    <h2><img src="https://images.unsplash.com/photo-1606813902529-318deaa6c5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60" alt="중고물품"> 중고물품</h2>
+    <table>
+      <tr><th>물품</th><th>가격</th></tr>
+      <tr><td>소설책</td><td>1,000원</td></tr>
+      <tr><td>의류</td><td>3,000원</td></tr>
+      <tr><td>주방용품</td><td>2,000원</td></tr>
+    </table>
+  </div>
+</body>
+</html>
