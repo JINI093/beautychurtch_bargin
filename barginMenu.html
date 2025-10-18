@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교회 바자회 메뉴판</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
+    
+    .header {
+      background-color: #fff;
+      padding: 12px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      color: #212529;
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .back-button:active {
+      background-color: #f1f3f5;
+    }
+    
+    .header h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #212529;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+    
+    .category-section {
+      margin-bottom: 40px;
+    }
+    
+    .category-title {
+      text-align: left;
+      margin-bottom: 16px;
+      padding: 0 12px;
+    }
+    
+    .category-badge {
+      display: inline-block;
+      background-color: #FF6F0F;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(255, 111, 15, 0.25);
+    }
+    
+    .items-grid {
+      display: grid;
+      gap: 12px;
+    }
+    
+    .item-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid #e9ecef;
+      min-height: 100px;
+    }
+    
+    .item-card:active {
+      transform: scale(0.98);
+      background-color: #f8f9fa;
+    }
+    
+    .item-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background-color: #f1f3f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    
+    .item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    
+    .item-content {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    
+    .item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .item-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .item-category {
+      font-size: 13px;
+      color: #868e96;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .item-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FF6F0F;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .price-won {
+      font-size: 14px;
+      font-weight: 600;
+      color: #FF6F0F;
+      margin-left: 2px;
+    }
+    
+    .tab-bar {
+      background-color: #fff;
+      border-bottom: 1px solid #e9ecef;
+      padding: 0 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      justify-content: center;
+    }
+    
+    .tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .tab {
+      padding: 14px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #868e96;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .tab.active {
+      color: #FF6F0F;
+      border-bottom-color: #FF6F0F;
+    }
+    
+    .tab:active {
+      background-color: #f8f9fa;
+    }
+    
+    /* 빈 상태 메시지 */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #868e96;
+    }
+    
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    .empty-state-text {
+      font-size: 15px;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 12px 8px;
+      }
+      
+      .item-card {
+        padding: 10px;
+      }
+      
+      .item-image {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+      }
+      
+      .item-name {
+        font-size: 15px;
+      }
+      
+      .item-category {
+        font-size: 12px;
+      }
+      
+      .item-price {
+        font-size: 16px;
+      }
+      
+      .category-badge {
+        font-size: 15px;
+        padding: 7px 20px;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .item-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-color: #FF6F0F;
+      }
+      
+      .tab:hover {
+        color: #FF6F0F;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button class="back-button" onclick="window.location.href='barginMain.html'">←</button>
+    <h1>🏪 메뉴판</h1>
+  </div>
+  
+  <div class="tab-bar">
+    <div class="tab active">전체</div>
+    <div class="tab">음식</div>
+    <div class="tab">애장품</div>
+    <div class="tab">중고물품</div>
+  </div>
+
+  <div class="container">
+    <div class="category-section">
+      <div class="category-title">
+        <span class="category-badge">음식</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-image">🍜</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">떡볶이</div>
+              <div class="item-category">간식 · 분식</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍙</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">김밥</div>
+              <div class="item-category">간식 · 분식</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍢</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">어묵</div>
+              <div class="item-category">간식 · 분식</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span class="category-badge">애장품</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-image">💍</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">핸드메이드 팔찌</div>
+              <div class="item-category">수공예품 · 액세서리</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🧸</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">소품 인형</div>
+              <div class="item-category">인테리어 · 소품</div>
+            </div>
+            <div class="item-price">
+              7,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🔖</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">책갈피 세트</div>
+              <div class="item-category">문구 · 사무용품</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span class="category-badge">중고물품</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-image">📚</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">소설책</div>
+              <div class="item-category">도서 · 교육</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">👕</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">의류</div>
+              <div class="item-category">패션 · 의류</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍳</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">주방용품</div>
+              <div class="item-category">생활 · 주방</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
