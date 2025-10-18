@@ -281,24 +281,42 @@
   </div>
   
   <div class="tab-bar">
-    <div class="tab active">전체</div>
-    <div class="tab">음식</div>
-    <div class="tab">애장품</div>
-    <div class="tab">중고물품</div>
+    <div class="tab active" data-category="all">전체</div>
+    <div class="tab" data-category="food">음식</div>
+    <div class="tab" data-category="cafe">카페</div>
+    <div class="tab" data-category="treasure">애장품</div>
+    <div class="tab" data-category="used">중고물품</div>
   </div>
 
   <div class="container">
-    <div class="category-section">
+    <div class="category-section" data-category="food">
       <div class="category-title">
         <span class="category-badge">음식</span>
       </div>
       <div class="items-grid">
         <div class="item-card">
-          <div class="item-image">🍜</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 002.jpeg" alt="김밥">
+          </div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">김밥</div>
+              <div class="item-category">분식 · 한식</div>
+            </div>
+            <div class="item-price">
+              3,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-21 001.jpeg" alt="떡볶이">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">떡볶이</div>
-              <div class="item-category">간식 · 분식</div>
+              <div class="item-category">분식 · 한식</div>
             </div>
             <div class="item-price">
               3,000<span class="price-won">원</span>
@@ -307,11 +325,26 @@
         </div>
         
         <div class="item-card">
-          <div class="item-image">🍙</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 003.jpeg" alt="어묵">
+          </div>
           <div class="item-content">
             <div class="item-info">
-              <div class="item-name">김밥</div>
-              <div class="item-category">간식 · 분식</div>
+              <div class="item-name">어묵</div>
+              <div class="item-category">분식 · 한식</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥪</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">야채계란 토스트</div>
+              <div class="item-category">분식 · 간식</div>
             </div>
             <div class="item-price">
               2,500<span class="price-won">원</span>
@@ -320,27 +353,250 @@
         </div>
         
         <div class="item-card">
-          <div class="item-image">🍢</div>
+          <div class="item-image">🍗</div>
           <div class="item-content">
             <div class="item-info">
-              <div class="item-name">어묵</div>
-              <div class="item-category">간식 · 분식</div>
+              <div class="item-name">순살치킨</div>
+              <div class="item-category">치킨 · 간식</div>
             </div>
             <div class="item-price">
-              1,000<span class="price-won">원</span>
+              7,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥘</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">야채전</div>
+              <div class="item-category">한식 · 전</div>
+            </div>
+            <div class="item-price">
+              4,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍲</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">순대볶음</div>
+              <div class="item-category">한식 · 분식</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥗</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">우엉조림</div>
+              <div class="item-category">한식 · 반찬</div>
+            </div>
+            <div class="item-price">
+              4,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥚</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">메추리알 장조림</div>
+              <div class="item-category">한식 · 반찬</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍜</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">사골곰탕</div>
+              <div class="item-category">한식 · 국물</div>
+            </div>
+            <div class="item-price">
+              10,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥘</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">직화 두루치기</div>
+              <div class="item-category">한식 · 볶음</div>
+            </div>
+            <div class="item-price">
+              10,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍱</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">돈까스</div>
+              <div class="item-category">양식 · 튀김</div>
+            </div>
+            <div class="item-price">
+              12,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍝</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">잡채</div>
+              <div class="item-category">한식 · 볶음</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥤</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">식혜</div>
+              <div class="item-category">음료 · 전통</div>
+            </div>
+            <div class="item-price">
+              7,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🌿</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">깻잎</div>
+              <div class="item-category">반찬 · 채소</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🦑</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">진미채</div>
+              <div class="item-category">반찬 · 해산물</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥜</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">견과 멸치볶음</div>
+              <div class="item-category">반찬 · 볶음</div>
+            </div>
+            <div class="item-price">
+              4,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥬</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">열무김치</div>
+              <div class="item-category">김치 · 반찬</div>
+            </div>
+            <div class="item-price">
+              7,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥬</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">배추겉절이</div>
+              <div class="item-category">김치 · 반찬</div>
+            </div>
+            <div class="item-price">
+              8,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🥬</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">파김치</div>
+              <div class="item-category">김치 · 반찬</div>
+            </div>
+            <div class="item-price">
+              5,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🫗</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">참기름</div>
+              <div class="item-category">조미료 · 기름</div>
+            </div>
+            <div class="item-price">
+              10,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🫗</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">들기름</div>
+              <div class="item-category">조미료 · 기름</div>
+            </div>
+            <div class="item-price">
+              13,000<span class="price-won">원</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="category-section">
+    <div class="category-section" data-category="treasure">
       <div class="category-title">
         <span class="category-badge">애장품</span>
       </div>
       <div class="items-grid">
         <div class="item-card">
-          <div class="item-image">💍</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 004.jpeg" alt="핸드메이드 팔찌">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">핸드메이드 팔찌</div>
@@ -353,7 +609,9 @@
         </div>
         
         <div class="item-card">
-          <div class="item-image">🧸</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 005.jpeg" alt="소품 인형">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">소품 인형</div>
@@ -366,7 +624,9 @@
         </div>
         
         <div class="item-card">
-          <div class="item-image">🔖</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 006.jpeg" alt="책갈피 세트">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">책갈피 세트</div>
@@ -380,13 +640,269 @@
       </div>
     </div>
 
-    <div class="category-section">
+    <div class="category-section" data-category="cafe">
+      <div class="category-title">
+        <span class="category-badge">카페</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-image">☕</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">(Hot)아메리카노</div>
+              <div class="item-category">음료 · 커피</div>
+            </div>
+            <div class="item-price">
+              1,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🧊</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">(Ice)아메리카노</div>
+              <div class="item-category">음료 · 커피</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">☕</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">(Hot)믹스커피</div>
+              <div class="item-category">음료 · 커피</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🧊</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">(Ice)믹스커피</div>
+              <div class="item-category">음료 · 커피</div>
+            </div>
+            <div class="item-price">
+              1,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍋</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">유자차</div>
+              <div class="item-category">음료 · 차</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍹</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">유자에이드</div>
+              <div class="item-category">음료 · 에이드</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🌺</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">오미자차</div>
+              <div class="item-category">음료 · 차</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍹</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">오미자에이드</div>
+              <div class="item-category">음료 · 에이드</div>
+            </div>
+            <div class="item-price">
+              3,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍦</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">뻥튀기 아이스크림</div>
+              <div class="item-category">디저트 · 아이스크림</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍪</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">초코칩쿠키</div>
+              <div class="item-category">디저트 · 쿠키</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍪</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">더블초코쿠키</div>
+              <div class="item-category">디저트 · 쿠키</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍪</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">크렌베리 오트밀쿠키</div>
+              <div class="item-category">디저트 · 쿠키</div>
+            </div>
+            <div class="item-price">
+              1,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🧁</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">아몬드머핀</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🧁</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">초코머핀</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍋</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">레몬글라쎄 마들렌</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,000<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍰</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">마블시나몬 마들렌</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍰</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">플레인 휘낭시에</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍰</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">무화과 크림치즈 휘낭시에</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="item-card">
+          <div class="item-image">🍰</div>
+          <div class="item-content">
+            <div class="item-info">
+              <div class="item-name">떡케잌</div>
+              <div class="item-category">디저트 · 베이커리</div>
+            </div>
+            <div class="item-price">
+              2,500<span class="price-won">원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-section" data-category="used">
       <div class="category-title">
         <span class="category-badge">중고물품</span>
       </div>
       <div class="items-grid">
         <div class="item-card">
-          <div class="item-image">📚</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 007.jpeg" alt="소설책">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">소설책</div>
@@ -399,7 +915,9 @@
         </div>
         
         <div class="item-card">
-          <div class="item-image">👕</div>
+          <div class="item-image">
+            <img src="image/KakaoTalk_Photo_2025-10-18-11-43-22 008.jpeg" alt="의류">
+          </div>
           <div class="item-content">
             <div class="item-info">
               <div class="item-name">의류</div>
@@ -426,5 +944,41 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // 모든 탭과 카테고리 섹션 가져오기
+    const tabs = document.querySelectorAll('.tab');
+    const categorySections = document.querySelectorAll('.category-section');
+    
+    // 각 탭에 클릭 이벤트 추가
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const selectedCategory = this.getAttribute('data-category');
+        
+        // 모든 탭에서 active 클래스 제거
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // 클릭한 탭에 active 클래스 추가
+        this.classList.add('active');
+        
+        // 카테고리 필터링
+        categorySections.forEach(section => {
+          const sectionCategory = section.getAttribute('data-category');
+          
+          if (selectedCategory === 'all') {
+            // 전체 탭: 모든 섹션 표시
+            section.style.display = 'block';
+          } else {
+            // 특정 카테고리: 해당 카테고리만 표시
+            if (sectionCategory === selectedCategory) {
+              section.style.display = 'block';
+            } else {
+              section.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
