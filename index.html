@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 아름다운 바자회</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #fff5eb 0%, #ffe8cc 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(255, 111, 15, 0.15);
+      overflow: hidden;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #FF6F0F 0%, #ff8c42 100%);
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .hero-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .content {
+      padding: 40px 32px;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .main-button {
+      width: 100%;
+      padding: 20px 24px;
+      border: none;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: inherit;
+    }
+    
+    .main-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .btn-schedule {
+      background-color: #fff;
+      color: #FF6F0F;
+      border: 2px solid #FF6F0F;
+    }
+    
+    .btn-schedule:hover {
+      background-color: #fff5eb;
+    }
+    
+    .btn-location {
+      background-color: #fff;
+      color: #FF6F0F;
+      border: 2px solid #FF6F0F;
+    }
+    
+    .btn-location:hover {
+      background-color: #fff5eb;
+    }
+    
+    .btn-menu {
+      background-color: #FF6F0F;
+      color: white;
+      border: 2px solid #FF6F0F;
+    }
+    
+    .btn-menu:hover {
+      background-color: #e66509;
+      border-color: #e66509;
+    }
+    
+    .button-icon {
+      font-size: 24px;
+    }
+    
+    /* 모달 스타일 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal.show {
+      display: flex;
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: modalSlideIn 0.3s ease;
+    }
+    
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #868e96;
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    
+    .modal-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 16px;
+    }
+    
+    .modal-text {
+      font-size: 18px;
+      color: #495057;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    
+    .modal-subtext {
+      font-size: 16px;
+      color: #868e96;
+      margin-bottom: 24px;
+    }
+    
+    .location-info {
+      background-color: #fff5eb;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    
+    .location-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FF6F0F;
+      margin-bottom: 12px;
+    }
+    
+    .location-address {
+      font-size: 16px;
+      color: #212529;
+      line-height: 1.5;
+      padding: 16px;
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    
+    .location-address:hover {
+      border-color: #FF6F0F;
+      background-color: #fffbf7;
+    }
+    
+    .location-address:active {
+      transform: scale(0.98);
+    }
+    
+    .copy-hint {
+      font-size: 13px;
+      color: #868e96;
+      text-align: center;
+    }
+    
+    .copy-toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #212529;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    @media (max-width: 480px) {
+      .hero {
+        padding: 50px 30px;
+      }
+      
+      .hero h1 {
+        font-size: 20px;
+      }
+      
+      .content {
+        padding: 32px 24px;
+      }
+      
+      .main-button {
+        font-size: 16px;
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-icon">🎪</div>
+      <h1>
+        은퇴목회자 섬김을 위한<br>
+        사랑섬김실천<br>
+        2025 아름다운바자회
+      </h1>
+    </div>
+    
+    <div class="content">
+      <div class="button-group">
+        <button class="main-button btn-schedule" onclick="openScheduleModal()">
+          <span class="button-icon">📅</span>
+          <span>일정보기</span>
+        </button>
+        
+        <button class="main-button btn-location" onclick="openLocationModal()">
+          <span class="button-icon">📍</span>
+          <span>장소</span>
+        </button>
+        
+        <button class="main-button btn-menu" onclick="window.location.href='barginMenu.html'">
+          <span class="button-icon">🛒</span>
+          <span>메뉴판 보기</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 일정 모달 -->
+  <div id="scheduleModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeScheduleModal()">×</button>
+      <div class="modal-icon">📅</div>
+      <div class="modal-title">바자회 일정</div>
+      <div class="modal-text">2025년 10월 26일 주일</div>
+      <div class="modal-subtext">낮 12시 ~ 오후 5시</div>
+    </div>
+  </div>
+
+  <!-- 장소 모달 -->
+  <div id="locationModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeLocationModal()">×</button>
+      <div class="modal-icon">📍</div>
+      <div class="modal-title">바자회 장소</div>
+      <div class="location-info">
+        <div class="location-name">아름다운교회</div>
+        <div class="location-address" onclick="copyAddress()">
+          경기도 파주시 탄현면 법흥로100<br>
+          아름다운교회
+        </div>
+        <div class="copy-hint">*주소를 누르면 복사됩니다.</div>
+      </div>
+      <div id="copyToast" class="copy-toast">주소가 복사되었습니다! 📋</div>
+    </div>
+  </div>
+
+  <script>
+    function openScheduleModal() {
+      document.getElementById('scheduleModal').classList.add('show');
+    }
+    
+    function closeScheduleModal() {
+      document.getElementById('scheduleModal').classList.remove('show');
+    }
+    
+    function openLocationModal() {
+      document.getElementById('locationModal').classList.add('show');
+    }
+    
+    function closeLocationModal() {
+      document.getElementById('locationModal').classList.remove('show');
+    }
+    
+    function copyAddress() {
+      const address = '경기도 파주시 탄현면 법흥로100, 아름다운교회';
+      
+      // 클립보드에 복사
+      navigator.clipboard.writeText(address).then(function() {
+        // 복사 성공 시 토스트 메시지 표시
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        
+        // 2초 후 토스트 메시지 숨기기
+        setTimeout(function() {
+          toast.classList.remove('show');
+        }, 2000);
+      }).catch(function(err) {
+        // 복사 실패 시 대체 방법 (구형 브라우저 지원)
+        const textArea = document.createElement('textarea');
+        textArea.value = address;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          const toast = document.getElementById('copyToast');
+          toast.classList.add('show');
+          setTimeout(function() {
+            toast.classList.remove('show');
+          }, 2000);
+        } catch (err) {
+          alert('복사에 실패했습니다. 주소: ' + address);
+        }
+        document.body.removeChild(textArea);
+      });
+    }
+    
+    // 모달 배경 클릭시 닫기
+    document.getElementById('scheduleModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeScheduleModal();
+      }
+    });
+    
+    document.getElementById('locationModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLocationModal();
+      }
+    });
+  </script>
+</body>
+</html>
+
